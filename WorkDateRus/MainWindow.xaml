@@ -6,8 +6,32 @@
         xmlns:local="clr-namespace:WorkDateRus"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="tbtnStyle" TargetType="ToggleButton">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="Green"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <DataGrid Name="DGMain" Margin="5" AutoGenerateColumns="False">
+        <DataGrid Name="DGMain" Margin="5" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" >
                     <DataGridTextColumn.HeaderStyle>
@@ -25,19 +49,8 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ToggleButton Padding="5,0" Content="{Binding sehedules[0].StartEnd}" IsChecked="{Binding sehedules[0].Enabled}">
-                                <ToggleButton.Style>
-                                    <Style TargetType="ToggleButton">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsChecked" Value="False">
-                                                <Setter Property="Background" Value="Green"/>
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Background" Value="Red"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ToggleButton.Style>
+                            <ToggleButton Padding="5,0" Content="{Binding sehedules[0].StartEnd}" IsChecked="{Binding sehedules[0].Enabled}" Style="{StaticResource tbtnStyle}">
+                              
                             </ToggleButton>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -51,7 +64,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ToggleButton Padding="5,0" Content="{Binding sehedules[1].StartEnd}" IsChecked="{Binding sehedules[1].Enabled}"/>
+                            <ToggleButton Padding="5,0" Content="{Binding sehedules[1].StartEnd}" IsChecked="{Binding sehedules[1].Enabled}" Style="{StaticResource tbtnStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -64,7 +77,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ToggleButton Padding="5,0" Content="{Binding sehedules[2].StartEnd}" IsChecked="{Binding sehedules[2].Enabled}"/>
+                            <ToggleButton Padding="5,0" Content="{Binding sehedules[2].StartEnd}" IsChecked="{Binding sehedules[2].Enabled}" Style="{StaticResource tbtnStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -77,7 +90,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ToggleButton Padding="5,0" Content="{Binding sehedules[3].StartEnd}" IsChecked="{Binding sehedules[3].Enabled}"/>
+                            <ToggleButton Padding="5,0" Content="{Binding sehedules[3].StartEnd}" IsChecked="{Binding sehedules[3].Enabled}" Style="{StaticResource tbtnStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -90,7 +103,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ToggleButton Padding="5,0" Content="{Binding sehedules[4].StartEnd}" IsChecked="{Binding sehedules[4].Enabled}"/>
+                            <ToggleButton Padding="5,0" Content="{Binding sehedules[4].StartEnd}" IsChecked="{Binding sehedules[4].Enabled}" Style="{StaticResource tbtnStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
