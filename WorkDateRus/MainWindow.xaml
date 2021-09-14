@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DGMain" AutoGenerateColumns="False">
+        <DataGrid Name="DGMain" Margin="5" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" >
                     <DataGridTextColumn.HeaderStyle>
